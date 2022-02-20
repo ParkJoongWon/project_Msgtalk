@@ -1,0 +1,25 @@
+방 목록 sql 입니다.
+
+CREATE TABLE msg_List_T (
+	roomNo VARCHAR(100) NOT NULL,
+	createdate VARCHAR(50) NOT NULL,
+	PRIMARY KEY (roomNo)
+);
+
+=========================================================================================
+
+방 생성시 사용되는 sql 의 경우 MsgListDAO_Spring.java 의 createRoom 에 기록되어있습니다.
+
+String sql = "CREATE TABLE msg_T_"+pvo.getRoomNo()+" (";
+	sql+= "boxColor VARCHAR(20) NULL,";
+	sql+= "roomNo VARCHAR(100) NOT NULL,";
+	sql+= "no INT NOT NULL AUTO_INCREMENT,";
+	sql+= "username VARCHAR(100) NOT NULL,";
+	sql+= "content VARCHAR(500) NOT NULL,";
+	sql+= "postdate DATETIME NOT NULL,";
+	sql+= "showip VARCHAR(20) NULL,";
+	sql+= "ofn VARCHAR(500) NULL,";
+	sql+= "fsn VARCHAR(500) NULL,";
+	sql+= "PRIMARY KEY(no)";
+	//sql+= "FOREIGN KEY (roomNo) REFERENCES msg_List_T (roomNo) ";
+	sql+= ");";
